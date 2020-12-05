@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import { Switch, Route, NavLink } from 'react-router-dom'
+import Cat from './Cat'
+import About from './About'
+import Horse from './Horse'
+import Dog from './Dog'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display: 'block', textAlign: 'center', padding: 10}}>
+      <nav style={{display:'flex',width:'75%',justifyContent:"space-between",margin:'auto'}}>
+        <NavLink exact activeClassName='active-link' to='/'>
+          Home
+        </NavLink>
+        <NavLink exact activeClassName='active-link' to='/horse'>Horse</NavLink> 
+        <NavLink exact activeClassName='active-link' to='dog'>Dog</NavLink>
+        <NavLink exact activeClassName='active-link' to='cat'>Cat</NavLink>
+      </nav>
+      <div > 
+        <Switch>
+          <Route exact path="/horse" component={Horse}/>
+            
+          
+          <Route exact path="/dog" component={Dog}/>
+            
+          
+          <Route exact path="/cat" component={Cat}/>
+            
+        
+          <Route exact path="/" component={About}/>
+        
+        </Switch>
+      </div>
     </div>
   );
 }
