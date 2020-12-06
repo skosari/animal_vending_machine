@@ -19,17 +19,19 @@ function App() {
       </nav>
       <div > 
         <Switch>
-          <Route exact path="/horse" component={Horse}/>
-            
-          
-          <Route exact path="/dog" component={Dog}/>
-            
-          
-          <Route exact path="/cat" component={Cat}/>
-            
-        
+          <Route 
+            exact path="/horse" 
+            render={()=><Horse name='Superman'/>}
+          />
+          <Route 
+            exact path="/dog" 
+            render={()=><Dog name='Mickey'/>}
+          />  
+          <Route 
+            exact path="/cat" 
+            render={()=><Cat name='Mr Biggellsworth'/>}
+          />       
           <Route exact path="/" component={About}/>
-        
         </Switch>
       </div>
     </div>
